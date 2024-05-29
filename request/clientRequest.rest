@@ -1,0 +1,44 @@
+### Recuperar todos los clientes
+GET http://localhost:3000/api/clients/
+
+### Recuperar el cliente con id=1
+GET http://localhost:3000/api/clients/1
+
+### Recuperar el cliente con email=pp@gmail.com
+GET http://localhost:3000/api/clients/email/pp@gmail.com
+
+### Recuperar el cliente con dni=12345678F
+GET http://localhost:3000/api/clients/dni/12345678F
+
+### Recuperar in cliente con id=999 (no existe -> 404)
+GET http://localhost:3000/api/clients/999
+
+### Insertar un cliente nuevo 
+POST http://localhost:3000/api/clients/
+content-type: application/json
+
+{   
+    "dni": "77788855B", 
+    "name": "Clara Gomez",
+    "email": "cg@gmail.com", 
+    "phone": "666999888",
+    "password": "123456"
+}
+
+### Actualizar el cliente con id=2
+PUT http://localhost:3000/api/clients/2
+content-type: application/json
+
+{
+    "dni": "11111111B", 
+    "name": "Pepito Pérez",
+    "email": "pepito@gmail.com", 
+    "phone": "666666666",
+    "password": "123456"
+}
+
+### Borrar un cliente con id=2
+DELETE http://localhost:3000/api/clients/2
+
+### Borrar un cliente con id=999 (no existe -> 404)
+DELETE http://localhost:3000/api/clients/999

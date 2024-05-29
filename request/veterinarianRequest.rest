@@ -1,0 +1,41 @@
+### Recuperar todos los veterinarios
+GET http://localhost:3000/api/veterinarians/
+
+### Recuperar el veterinario con id=1
+GET http://localhost:3000/api/veterinarians/2
+
+### Recuperar todos los veterinaros cuya especialidad sea=domestico
+GET http://localhost:3000/api/veterinarians/speciality/domestico
+
+### Recuperar in veterinario con id=999 (no existe -> 404)
+GET http://localhost:3000/api/veterinarians/999
+
+### Crear un nuevo veterinario 
+POST http://localhost:3000/api/veterinarians/
+content-type: application/json
+
+{
+    "registrationNumber": "123456789",
+    "name": "Rocío Rodríguez",
+    "email": "roc.rod@vetcare.com", 
+    "password": "123456", 
+    "speciality": "V.Doméstico"
+}
+
+### Actualizar el veterinario con id=2
+PUT http://localhost:3000/api/veterinarians/2
+content-type: application/json
+
+{
+    "registrationNumber": "999999999",
+    "name": "Rocío Rodríguez",
+    "email": "rocio.rodriguez@vetcare.com", 
+    "password": "123456", 
+    "speciality": "V.Rural"
+}
+
+### Eliminar el veterinario con id=2
+DELETE http://localhost:3000/api/veterinarians/2
+
+### Borrar un veterinario con id=999 (no existe -> 404
+DELETE http://localhost:3000/api/veterinarians/999

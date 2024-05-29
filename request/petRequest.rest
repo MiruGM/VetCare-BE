@@ -1,0 +1,45 @@
+### Recuperar todas las mascotas
+GET http://localhost:3000/api/pets/
+
+### Recuperar la mascota por id=1
+GET http://localhost:3000/api/pets/1
+
+### Recuperar la mascota por id=999 (no existe -> 404
+GET http://localhost:3000/api/pets/999
+
+### Insertar una mascota nueva 
+POST http://localhost:3000/api/pets/
+content-type: application/json
+
+{
+    "registrationNumber": "111222333444657", 
+    "name": "Firulais",
+    "birthDate": "2019-01-01",
+    "sex": "M",
+    "type": "Mamífero",
+    "species": "Perro",
+    "breed": "Labrador",
+    "clientId": "3"
+}
+
+### Actualizar la mascota con id=2
+PUT http://localhost:3000/api/pets/2
+content-type: application/json
+
+{
+    "registrationNumber": "111222333444555", 
+    "name": "Perrito",
+    "birthDate": "2019-01-01",
+    "sex": "F",
+    "type": "Mamífero",
+    "species": "Perro",
+    "breed": "Pastor Alemán",
+    "clientId": "2"
+
+}
+
+### Borrar la mascota con id=2
+DELETE http://localhost:3000/api/pets/2
+
+### Borrar la mascota con id=999 (no existe -> 404)
+DELETE http://localhost:3000/api/pets/999

@@ -1,0 +1,44 @@
+### Recuperar todos los tratamientos 
+GET http://localhost:3000/api/treatments/
+
+### Recuperar el tratamiento por id=1
+GET http://localhost:3000/api/treatments/1
+
+### Recuperar el tratamiento con id=999 (no existe -> 404)
+GET http://localhost:3000/api/treatments/999
+
+### Crear un tratamiento
+POST http://localhost:3000/api/treatments/
+Content-Type: application/json
+
+{
+    "reason": "Cura", 
+    "name": "Cura Tópica",
+    "description": "Tratamiento de cura en herida tópica",
+    "duration": "15 min", 
+    "meds": "Betadine",
+    "frequency": "Cada 12 horas",
+    "price": 12.50,
+    "followUp": false,
+    "appointmentId": 2
+}
+
+### Actualizar el tratamiento con id=2
+PUT http://localhost:3000/api/treatments/2
+
+{   
+    "reason": "Esterilización",
+    "name": "Esterilización de animal grande",
+    "description": "Revisión esterilización",
+    "duration": "1 hora",
+    "meds": "Anestesiante, desinfectante tópico",
+    "frequency": "1 vez en la vida",
+    "price": 300.50, 
+    "followUp": true,
+}
+
+### Borrar el tratamiento con id=2
+DELETE http://localhost:3000/api/treatments/2
+
+### Borrar el tratamiento con id=999 (no existe -> 404)
+DELETE http://localhost:3000/api/treatments/999
