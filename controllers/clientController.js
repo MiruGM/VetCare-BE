@@ -100,7 +100,9 @@ exports.updateClient = async (req, res) => {
     const { id } = req.params;
     const { dni, name, email, phone, password } = req.body;
     try {
-        const client = await Client.findByPk(id);
+        const client = await Client.findByPk(id, {
+            include: Pet
+        });
         if (client) {
             client.dni = dni;
             client.name = name;
@@ -113,6 +115,7 @@ exports.updateClient = async (req, res) => {
             res.status(404).json(Response.error(null, 'Cliente no encontrado'));
         }
     } catch (error) {
+        console.log(error);
         res.status(500).json(Response.error(null, 'Error al actualizar el cliente'));
     }
 };
