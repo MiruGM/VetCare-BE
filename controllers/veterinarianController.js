@@ -61,9 +61,9 @@ exports.getAllVeterinariansBySpeciality = async (req, res) => {
 
 //Crear un veterinario nuevo. 
 exports.createVeterinarian = async (req, res) => {
-  const { registrationNumber, name, email, password, speciality } = req.body;
+  const { registrationNumber, name, email, password, speciality, admin } = req.body;
   try {
-    const newVeterinarian = await Veterinarian.create({ registrationNumber, name, email, password, speciality });
+    const newVeterinarian = await Veterinarian.create({ registrationNumber, name, email, password, speciality, admin });
     res.status(201).json(Response.success(newVeterinarian, 'Veterinario creado correctamente'));
   } catch (error) {
     console.error(error);

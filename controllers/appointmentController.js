@@ -12,6 +12,9 @@ const models = initializeModels();
 const Appointment = models.appointment;
 const Treatment = models.treatment;
 
+//Importar el operador de Sequelize
+const { Op } = require('sequelize');
+
 
 //CONTROLADORES DE CITA
 //Obtener todas las citas
@@ -59,6 +62,45 @@ exports.getAllAppointmentsByDate = async (req, res) => {
         }
     } catch (error) {
         res.status(500).json(Response.error(null, 'Error al recuperar los datos'));
+    }
+};
+
+//Obtener todas las citas a partir de una fecha concreta 
+exports.getAllAppointmentsByDateAfter = async (req, res) => {
+    const { date } = req.params;
+
+    try {
+        const appointments = await Appointment.findAll({
+            where: { date: { [Op.gte]: date } }
+        });
+
+        if (appointments.length > 0) {
+            res.json(Response.success(appointments, `Datos de citas con fecha a partir de ${date} recuperados`));
+        } else {
+            res.status(404).json(Response.error(null, 'No se han encontrado citas a partir de la fecha indicada'));
+        }
+    } catch (error) {
+        res.status(500).json(Response.error(null, 'Error al recuperar los datos'));
+    }
+};
+
+//Obtener todas las citas antes de una fecha concreta
+exports.getAllAppointmentsByDateBefore = async (req, res) => {
+    const { date } = req.params;
+
+    try {
+        const appointments = await Appointment.findAll({
+            where: { date: { [Op.lte]: date } }
+        });
+
+        if (appointments.length > 0) {
+            res.json(Response.success(appointments, `Datos de citas con fecha anterior a ${date} recuperados`));
+        } else {
+            res.status(404).json(Response.error(null, 'No se han encontrado citas antes de la fecha indicada'));
+        }
+    } catch (error) {
+        res.status(500).json(Response.error(null, 'Error al recuperar los datos'));
+
     }
 };
 

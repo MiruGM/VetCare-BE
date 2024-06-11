@@ -7,6 +7,12 @@ GET http://localhost:3000/api/appointments/pet/1
 ### Recuperar todas las citas por fecha
 GET http://localhost:3000/api/appointments/date/2024-06-01
 
+### recuperar todas las citas a partir de una fecha 
+GET http://localhost:3000/api/appointments/date/after/2024-06-01
+
+### Recuperar todas las citas anteriores a una fecha 
+GET http://localhost:3000/api/appointments/date/before/2024-06-01
+
 ### Crear una cita para la mascota con id=2 y veterinario con id=3
 POST http://localhost:3000/api/appointments
 Content-Type: application/json
