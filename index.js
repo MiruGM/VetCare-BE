@@ -13,7 +13,8 @@ const appointmentRoutes = require('./routes/appointmentRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 
 const app = express();
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
+const { PORT } = require('./utils/constants');
 
 //Configurar el middleware para analizar el JSON en las solicitudes. 
 app.use(express.json());
@@ -38,6 +39,6 @@ app.get('*', (req, res) => {
 });
 
 //Iniciar el servidor 
-app.listen(port, () => {
-    console.log(`Servidor escuchando en el puerto ${port}`);
+app.listen(PORT, () => {
+    console.log(`Servidor escuchando en el puerto ${PORT}`);
 })

@@ -1,14 +1,15 @@
 const SequelizeAuto = require('sequelize-auto');
+const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT } = require('../utils/constants');
 
 const auto = new SequelizeAuto(
-    'vet_care', // bd
-    'vetcareadmin', // usuario bd
-    'vetcareadmin', // contraseña bd
+    DB_NAME, // bd
+    DB_USER, // usuario bd
+    DB_PASSWORD, // contraseña bd
     {
-        host: 'localhost',
+        host: DB_HOST,
         dialect: 'mysql',
         directory: './models',
-        port: '3306',
+        port: DB_PORT,
         caseMode: 'c',
         caseFile: 'c',
         singularize: true,

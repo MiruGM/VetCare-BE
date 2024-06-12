@@ -52,7 +52,7 @@ function initModels(sequelize) {
     appointment.belongsTo(veterinarian);
 
     //Sincronización de los modelos con la base de datos
-    sequelize.sync({ alter: true });
+    sequelize.sync();
     return {
         client,
         veterinarian,

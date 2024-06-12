@@ -1,14 +1,15 @@
 const { Sequelize } = require('sequelize');
+const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT } = require('../utils/constants');
 
 //Instanciar sequelize para conectar con MySQL 
 const sequelize = new Sequelize(
-    'vet_care',
-    'vetcareadmin', // usuario bd
-    'vetcareadmin', // contraseña bd
+    DB_NAME,
+    DB_USER, // usuario bd
+    DB_PASSWORD, // contraseña bd
     {
-        host: 'localhost',
+        host: DB_HOST,
         dialect: 'mysql',
-        port: '3306',
+        port: DB_PORT,
     });
 
 //Probar la conexión
