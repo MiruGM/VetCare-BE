@@ -31,11 +31,11 @@ app.use('/api/appointments', appointmentRoutes);
 app.use('/api/login', loginRoutes);
 
 //Configurar el middleware para servir archivos estáticos desde el directorio 'public'
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // Ruta para manejas las solicitudes al archivo index.html
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 //Iniciar el servidor 
